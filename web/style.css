@@ -1,0 +1,231 @@
+:root {
+  --bg: #14130f;
+  --surface: #1b1914;
+  --border: #35322a;
+  --text: #ece7db;
+  --text-muted: #8c8778;
+  --accent: #c98a2c;
+  --accent-dim: #6b5220;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+body {
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+.frame {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+  min-height: 100vh;
+}
+
+.mark {
+  font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  margin-bottom: 56px;
+}
+
+.screen { animation: rise 500ms ease both; }
+.screen.hidden { display: none; }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .screen { animation: none; }
+}
+
+/* ---- start screen ---- */
+
+.title {
+  font-size: 40px;
+  font-weight: 500;
+  margin: 0 0 14px;
+  letter-spacing: -0.01em;
+}
+
+.tagline {
+  font-size: 17px;
+  color: var(--accent);
+  margin: 0 0 28px;
+}
+
+.lede {
+  max-width: 46ch;
+  color: var(--text);
+  font-size: 17px;
+  margin: 0 0 40px;
+}
+
+.btn-primary, .btn-secondary {
+  font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  padding: 14px 28px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 150ms ease, color 150ms ease, border-color 150ms ease;
+}
+
+.btn-primary {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+.btn-primary:hover:not(:disabled) { background: var(--accent); color: #171410; }
+.btn-primary:disabled { opacity: 0.35; cursor: not-allowed; }
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  margin-top: 36px;
+}
+.btn-secondary:hover { border-color: var(--text-muted); color: var(--text); }
+
+.btn-primary:focus-visible, .btn-secondary:focus-visible, .option:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---- question screen ---- */
+
+.readout {
+  font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.progress-track {
+  height: 2px;
+  background: var(--border);
+  margin-bottom: 34px;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--accent);
+  width: 0%;
+  transition: width 400ms ease;
+}
+
+.scenario {
+  font-size: 21px;
+  line-height: 1.6;
+  margin: 0 0 36px;
+  max-width: 54ch;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border);
+}
+
+.option {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  padding: 18px 4px;
+  border-bottom: 1px solid var(--border);
+  border-left: 3px solid transparent;
+  background: transparent;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 16px;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 150ms ease, background 150ms ease, padding-left 150ms ease;
+}
+.option:hover { background: rgba(201, 138, 44, 0.06); }
+.option.selected {
+  border-left-color: var(--accent);
+  background: rgba(201, 138, 44, 0.09);
+  padding-left: 14px;
+}
+
+.option .letter {
+  font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 13px;
+  color: var(--text-muted);
+  padding-top: 2px;
+  flex-shrink: 0;
+  width: 14px;
+}
+.option.selected .letter { color: var(--accent); }
+
+#next-btn { margin-top: 32px; }
+
+/* ---- results screen ---- */
+
+.archetype {
+  font-size: 18px;
+  color: var(--accent);
+  margin: 0 0 40px;
+}
+
+.attributes {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  margin-bottom: 48px;
+}
+
+.attribute-row .attribute-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.attribute-name {
+  font-size: 16px;
+}
+
+.mono-num {
+  font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 14px;
+  color: var(--accent);
+}
+
+.attribute-blurb {
+  color: var(--text-muted);
+  font-size: 15px;
+  margin: 10px 0 0;
+  max-width: 52ch;
+}
+
+.consistency {
+  border-top: 1px solid var(--border);
+  padding-top: 28px;
+}
+
+.consistency-head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+.note {
+  color: var(--text-muted);
+  font-size: 15px;
+  max-width: 54ch;
+  margin-top: 16px;
+}

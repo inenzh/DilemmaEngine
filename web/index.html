@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dilemma Engine</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<div class="frame">
+  <header class="mark">DILEMMA ENGINE</header>
+
+  <main id="app">
+
+    <!-- ===== START SCREEN ===== -->
+    <section id="screen-start" class="screen">
+      <h1 class="title">Dilemma Engine</h1>
+      <p class="tagline">30 decisions. 5 attributes. One behavioral profile.</p>
+      <p class="lede">
+        You will face 30 situations where there may be no completely correct answer.
+        Choose the option you would actually take — not the one you think sounds best.
+      </p>
+      <button id="begin-btn" class="btn-primary">Begin</button>
+    </section>
+
+    <!-- ===== QUESTION SCREEN ===== -->
+    <section id="screen-question" class="screen hidden">
+      <div class="readout">
+        <span id="q-number">DILEMMA 01 / 30</span>
+      </div>
+      <div class="progress-track"><div id="progress-fill" class="progress-fill"></div></div>
+
+      <p id="q-text" class="scenario"></p>
+
+      <div id="options" class="options"></div>
+
+      <button id="next-btn" class="btn-primary hidden">Next dilemma</button>
+    </section>
+
+    <!-- ===== RESULTS SCREEN ===== -->
+    <section id="screen-results" class="screen hidden">
+      <div class="readout"><span>PROFILE COMPLETE</span></div>
+      <h1 class="title">Your Dilemma Profile</h1>
+      <p id="archetype" class="archetype"></p>
+
+      <div id="attribute-list" class="attributes"></div>
+
+      <div class="consistency">
+        <div class="consistency-head">
+          <span>Decision Consistency</span>
+          <span id="consistency-value" class="mono-num"></span>
+        </div>
+        <div class="progress-track"><div id="consistency-fill" class="progress-fill"></div></div>
+        <p id="consistency-note" class="note"></p>
+      </div>
+
+      <button id="restart-btn" class="btn-secondary">Run the assessment again</button>
+    </section>
+
+  </main>
+</div>
+
+<script src="/app.js"></script>
+</body>
+</html>
